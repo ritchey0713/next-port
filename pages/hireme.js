@@ -1,10 +1,11 @@
+import Layout from "../components/Layout";
+
 const HireMe = () => (
-  <div>
-    <h1>Hire me</h1>
+  <Layout title="Hire me">
     <p>
-      You cna hire me at <a href="mailto:google.com"> google.com</a>
+      You can hire me at <a href="mailto:google.com"> google.com</a>
     </p>
-  </div>
+  </Layout>
 );
 
 export default HireMe;
