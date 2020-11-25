@@ -3,14 +3,18 @@ import Head from "next/head";
 import Router from "next/router";
 import NProgress from "nprogress";
 
-export default ({ children, title }) => (
+Router.onRouteChangeStart = (url) => {
+  NProgress.start();
+};
+
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
+
+const Layout = ({ children, title }) => (
   <div className="root">
     <Head>
       <title>Next project</title>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-      />
+      <meta name="viewport" content="width=device-width" />
     </Head>
     <header>
       <Link href="/">
@@ -69,3 +73,5 @@ export default ({ children, title }) => (
     </style>
   </div>
 );
+
+export default Layout;
